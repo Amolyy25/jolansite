@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Serenity Fitness</title>
+    <link rel="stylesheet" href="../css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Serenity Fitness</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./apropos.html">À Propos</a></li>
+                <li><a href="./programmes.html">Programmes</a></li>
+                <li><a href="./contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="./connexion.html" class="btn-connexion">Connexion</a>
+                <a href="./inscription.html" class="btn-inscription">Inscription</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Banner Section -->
+        <section class="contact-banner">
+            <div class="banner-content">
+                <h1>Contactez-moi</h1>
+                <p>Un pas de plus vers votre objectif, ça vous tente ?</p>
+            </div>
+        </section>
+
+        <!-- Contact Info Section -->
+        <section class="contact-info-section">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card fade-in">
+                        <i class="fas fa-phone"></i>
+                        <h3>Téléphone</h3>
+                        <p>+33 6 XX XX XX XX</p>
+                        <p>Lun-Ven: 9h-19h</p>
+                    </div>
+                    <div class="info-card fade-in">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>contact@serenityfitness.fr</p>
+                        <p>Réponse sous 24h</p>
+                    </div>
+                    <div class="info-card fade-in">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Adresse</h3>
+                        <p>Pélussin et ses alentours</p>
+                        <p>Déplacement à domicile</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-content fade-in">
+                        <h2>Envoyez-nous un message</h2>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nom complet</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Sujet</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Choisissez un sujet</option>
+                                    <option value="coaching">Coaching personnalisé</option>
+                                    <option value="programme">Programme d'entraînement</option>
+                                    <option value="nutrition">Conseil en nutrition</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="cta-button">
+                                <span>Envoyer le message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="form-image fade-in">
+                        <img src="../image/meditation.jpeg" alt="Coach sportif en action">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2>Questions Fréquentes</h2>
+                <div class="faq-grid">
+                    <div class="faq-item fade-in">
+                        <h3>Comment se déroule la première séance ?</h3>
+                        <div class="faq-answer">
+                            <p>La première séance est consacrée à l'évaluation de votre condition physique et à la définition de vos objectifs. Nous établirons ensemble un plan personnalisé adapté à vos besoins.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item fade-in">
+                        <h3>Quels sont vos tarifs ?</h3>
+                        <div class="faq-answer">
+                            <p>Nos tarifs varient selon le type de programme et la fréquence des séances. Contactez-nous pour obtenir un devis personnalisé adapté à vos besoins.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item fade-in">
+                        <h3>Dans quelles zones intervenez-vous ?</h3>
+                        <div class="faq-answer">
+                            <p>J'interviens dans la région Loire. Le déplacement est inclus dans nos tarifs.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Serenity Fitness</h3>
+                <p>Votre partenaire fitness à domicile</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <p class="copyright">© 2024 Serenity Fitness. Tous droits réservés.</p>
+    </footer>
+
+    <script src="../js/contact.js"></script>
+    <script src="../js/nav.js"></script>
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth-state.js"></script>
+</body>
+</html>

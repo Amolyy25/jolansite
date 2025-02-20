@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion | Serenity Fitness</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Serenity Fitness</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./apropos.html">À Propos</a></li>
+                <li><a href="./programmes.html">Programmes</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="./connexion.html" class="btn-connexion active">Connexion</a>
+                <a href="./inscription.html" class="btn-inscription">Inscription</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="auth-container">
+            <h2>Connexion</h2>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" required placeholder="Votre adresse email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" required placeholder="Votre mot de passe">
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                </div>
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Se souvenir de moi</label>
+                </div>
+                <button type="submit" class="cta-button">Se connecter</button>
+
+                <div class="auth-links">
+                    <a href="./mot-de-passe-oublie.html">Mot de passe oublié ?</a>
+                    <p>Pas encore de compte ? <a href="./inscription.html">S'inscrire</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Serenity Fitness</h3>
+                <p>Votre partenaire fitness à domicile</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <p class="copyright">© 2024 Serenity Fitness. Tous droits réservés.</p>
+    </footer>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module">
+        import { handleSignIn } from '../js/auth-login.js';
+
+        const loginForm = document.querySelector('#loginForm');
+        const togglePassword = document.querySelector('.toggle-password');
+        const passwordInput = document.querySelector('#password');
+
+        // Afficher/Masquer le mot de passe
+        togglePassword?.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+
+        loginForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            console.log("Soumission du formulaire de connexion");
+            
+            const email = document.querySelector('#email').value;
+            const password = document.querySelector('#password').value;
+            const remember = document.querySelector('#remember')?.checked || false;
+
+            const submitButton = loginForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.classList.add('loading');
+
+            try {
+                const result = await handleSignIn(email, password, remember);
+                console.log("Résultat de la connexion:", result);
+                
+                if (result.success) {
+                    console.log("Redirection vers le dashboard...");
+                    window.location.href = './dashboard.html';
+                } else {
+                    console.error("Erreur de connexion:", result.error);
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'error-message visible';
+                    errorDiv.textContent = result.error;
+                    
+                    const oldError = loginForm.querySelector('.error-message');
+                    if (oldError) oldError.remove();
+                    
+                    loginForm.insertBefore(errorDiv, submitButton);
+                }
+            } catch (error) {
+                console.error('Erreur inattendue:', error);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.classList.remove('loading');
+            }
+        });
+    </script>
+    <script type="module" src="../js/auth-state.js"></script>
+    <script src="../js/nav.js"></script>
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth-state.js"></script>
+    <script type="module" src="../js/auth-login.js"></script>
+</body>
+</html>

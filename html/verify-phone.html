@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification du téléphone | Serenity Fitness</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <main>
+        <div class="auth-container">
+            <form id="verifyPhoneForm" class="auth-form">
+                <h2>Vérification du téléphone</h2>
+                <p class="verification-info">Pour finaliser votre inscription, veuillez vérifier votre numéro de téléphone.</p>
+                
+                <div class="form-group">
+                    <label for="phone">Votre numéro de téléphone</label>
+                    <div class="input-icon">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div id="recaptcha-container"></div>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" id="sendCode" class="btn-secondary">
+                        Envoyer le code
+                    </button>
+                </div>
+
+                <div class="form-group verification-code" style="display: none;">
+                    <label for="verificationCode">Code de vérification</label>
+                    <div class="input-icon">
+                        <i class="fas fa-key"></i>
+                        <input type="text" id="verificationCode" placeholder="Entrez le code reçu">
+                    </div>
+                    <button type="button" id="verifyCode" class="cta-button">
+                        Vérifier le code
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/phone-verification.js"></script>
+</body>
+</html> 

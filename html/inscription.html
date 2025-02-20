@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription | Serenity Fitness</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Serenity Fitness</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./apropos.html">À Propos</a></li>
+                <li><a href="./programmes.html">Programmes</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="./connexion.html" class="btn-connexion">Connexion</a>
+                <a href="./inscription.html" class="btn-inscription active">Inscription</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="auth-container">
+            <form id="signupForm" class="auth-form">
+                <h2>Inscription</h2>
+                <div class="form-group">
+                    <label for="firstName">Prénom</label>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="firstName" required placeholder="Votre prénom">
+                    </div>
+                    <div class="error-message" id="firstNameError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nom</label>
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="lastName" required placeholder="Votre nom">
+                    </div>
+                    <div class="error-message" id="lastNameError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <div class="input-icon">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="phone" required placeholder="Votre numéro de téléphone">
+                    </div>
+                    <div class="error-message" id="phoneError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="postalCode">Code Postal</label>
+                    <div class="input-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="postalCode" required placeholder="Votre code postal">
+                    </div>
+                    <div class="error-message" id="postalCodeError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" required placeholder="Votre adresse email">
+                    </div>
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" required placeholder="Votre mot de passe">
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="cta-button">
+                        S'inscrire
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <p class="auth-switch">Déjà un compte ? <a href="./connexion.html">Se connecter</a></p>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Serenity Fitness</h3>
+                <p>Votre partenaire fitness à domicile</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <p class="copyright">© 2024 Serenity Fitness. Tous droits réservés.</p>
+    </footer>
+
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module">
+        import { handleSignUp } from '../js/auth-register.js';
+
+        const signupForm = document.querySelector('#signupForm');
+        const togglePassword = document.querySelector('.toggle-password');
+        const passwordInput = document.querySelector('#password');
+        const emailInput = document.querySelector('#email');
+        const emailError = document.querySelector('#emailError');
+        const passwordError = document.querySelector('#passwordError');
+
+        // Afficher/Masquer le mot de passe
+        togglePassword?.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+
+        // Réinitialiser les messages d'erreur lors de la saisie
+        emailInput.addEventListener('input', () => {
+            emailError.textContent = '';
+            emailInput.classList.remove('error');
+        });
+
+        passwordInput.addEventListener('input', () => {
+            passwordError.textContent = '';
+            passwordInput.classList.remove('error');
+        });
+
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const userData = {
+                firstName: document.querySelector('#firstName').value,
+                lastName: document.querySelector('#lastName').value,
+                phone: document.querySelector('#phone').value,
+                postalCode: document.querySelector('#postalCode').value,
+                email: document.querySelector('#email').value,
+                password: document.querySelector('#password').value
+            };
+
+            const submitButton = signupForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.classList.add('loading');
+
+            try {
+                const result = await handleSignUp(userData);
+                if (result.success) {
+                    sessionStorage.setItem('phoneToVerify', userData.phone);
+                    window.location.href = result.redirect;
+                } else {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'error-message visible';
+                    errorDiv.textContent = result.error;
+                    const submitButton = signupForm.querySelector('button[type="submit"]');
+                    signupForm.insertBefore(errorDiv, submitButton);
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message visible';
+                errorDiv.textContent = "Une erreur inattendue est survenue.";
+                const submitButton = signupForm.querySelector('button[type="submit"]');
+                signupForm.insertBefore(errorDiv, submitButton);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.classList.remove('loading');
+            }
+        });
+    </script>   
+    <script type="module" src="../js/auth-state.js"></script>
+    <script type="module" src="../js/auth-register.js"></script>
+</body>
+</html>

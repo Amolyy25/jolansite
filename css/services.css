@@ -1,0 +1,464 @@
+/* Variables */
+:root {
+    --primary-color: #7C9082;
+    --secondary-color: #2F4538;
+    --background-light: #F5F5F0;
+    --light-gray: #E6E6E6;
+    --accent-color: #A8C4B2;
+    --sand-beige: #E8E0D5;
+    --glacier-blue: #A4C3D2;
+    --light-sage: #9DB4A3;
+    --dark-mint: #86A690;
+    --warm-brown: #D4B5A0;
+    --text-color: #2F4538;
+    --white: #FFFFFF;
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Header et Navigation */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(47, 69, 56, 0.08);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    background: var(--white);
+    padding: 0.5rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    transition: padding 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+/* Banner Section */
+.services-banner {
+    height: 50vh;
+    background: linear-gradient(rgba(47, 69, 56, 0.7), rgba(47, 69, 56, 0.7)),
+                url('../image/herofon2.jpeg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    margin-top: 80px;
+}
+
+.banner-content {
+    max-width: 800px;
+    padding: 2rem;
+    background: rgba(47, 69, 56, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.banner-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Services Détaillés */
+.detailed-services {
+    padding: 5rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 6rem;
+    align-items: center;
+}
+
+.service-item:last-child {
+    margin-bottom: 0;
+}
+
+.service-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-image img:hover {
+    transform: scale(1.02);
+}
+
+.service-details h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.service-price {
+    font-size: 1.5rem;
+    color: var(--dark-mint);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.service-features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.service-features li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.service-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Pricing Section */
+.pricing-section {
+    padding: 5rem 1rem;
+    background: var(--background-light);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.section-title p {
+    color: var(--light-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(47, 69, 56, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.pricing-card.popular {
+    transform: scale(1.05);
+    border: 2px solid var(--accent-color);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.pricing-header h3 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    color: var(--dark-mint);
+    font-weight: 700;
+}
+
+.duration {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.pricing-features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.pricing-features li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.pricing-features li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Boutons */
+.cta-button,
+.btn-savoir-plus {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.cta-button {
+    background: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(124, 144, 130, 0.3);
+}
+
+.btn-savoir-plus {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 5rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.faq-item {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(47, 69, 56, 0.1);
+}
+
+.faq-item h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.faq-item p {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 3rem 1rem 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.footer-social a {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--accent-color);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover Effects */
+.pricing-card:hover:not(.popular) {
+    transform: translateY(-10px);
+}
+
+.cta-button:hover {
+    background: var(--dark-mint);
+    box-shadow: 0 6px 20px rgba(124, 144, 130, 0.4);
+}
+
+.btn-savoir-plus:hover {
+    background: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .banner-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .service-item {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .service-item:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .pricing-card.popular {
+        transform: scale(1);
+    }
+
+    .service-details {
+        text-align: center;
+    }
+
+    .service-features li {
+        text-align: left;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+
+    .service-details h2 {
+        font-size: 1.8rem;
+    }
+
+    .pricing-card {
+        padding: 1.5rem;
+    }
+}

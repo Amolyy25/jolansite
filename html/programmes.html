@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Programmes | Serenity Fitness</title>
+    <link rel="stylesheet" href="../css/programmes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Serenity Fitness</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Accueil</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./apropos.html">À Propos</a></li>
+                <li><a href="./programmes.html" class="active">Programmes</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="./connexion.html" class="btn-connexion">Connexion</a>
+                <a href="./inscription.html" class="btn-inscription">Inscription</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Banner Section -->
+        <section class="programmes-banner">
+            <div class="banner-content">
+                <h1>Nos Programmes d'Entraînement</h1>
+                <p>Des programmes sur mesure pour atteindre vos objectifs</p>
+            </div>
+        </section>
+
+        <!-- Filtres -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="perte-poids">Perte de Poids</button>
+                    <button class="filter-btn" data-filter="musculation">Musculation</button>
+                    <button class="filter-btn" data-filter="cardio">Cardio</button>
+                    <button class="filter-btn" data-filter="bien-etre">Bien-être</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programmes Grid -->
+        <section class="programmes-grid">
+            <div class="container">
+                <div class="programmes-container">
+                    <!-- Programme Card 1 -->
+                    <div class="programme-card fade-in" data-category="perte-poids">
+                        <div class="programme-image">
+                            <img src="../image/trainingper1.jpeg" alt="Programme Perte de Poids">
+                            <div class="programme-duration">12 semaines</div>
+                        </div>
+                        <div class="programme-content">
+                            <h3>Programme Perte de Poids</h3>
+                            <div class="programme-details">
+                                <span><i class="fas fa-clock"></i> 3-4 séances/semaine</span>
+                                <span><i class="fas fa-dumbbell"></i> Tous niveaux</span>
+                            </div>
+                            <p>Un programme complet combinant cardio et renforcement pour une perte de poids durable.</p>
+                            <div class="programme-features">
+                                <ul>
+                                    <li>Plan nutritionnel personnalisé</li>
+                                    <li>Suivi des progrès hebdomadaire</li>
+                                    <li>Exercices adaptés à votre niveau</li>
+                                </ul>
+                            </div>
+                            <button class="cta-button">Découvrir le Programme</button>
+                        </div>
+                    </div>
+
+                    <!-- Programme Card 2 -->
+                    <div class="programme-card fade-in" data-category="musculation">
+                        <div class="programme-image">
+                            <img src="../image/trainingmulti1.jpeg" alt="Programme Musculation">
+                            <div class="programme-duration">16 semaines</div>
+                        </div>
+                        <div class="programme-content">
+                            <h3>Programme Musculation</h3>
+                            <div class="programme-details">
+                                <span><i class="fas fa-clock"></i> 4-5 séances/semaine</span>
+                                <span><i class="fas fa-dumbbell"></i> Intermédiaire</span>
+                            </div>
+                            <p>Programme de musculation progressif pour développer force et masse musculaire.</p>
+                            <div class="programme-features">
+                                <ul>
+                                    <li>Plans d'entraînement périodisés</li>
+                                    <li>Conseils en supplémentation</li>
+                                    <li>Techniques avancées</li>
+                                </ul>
+                            </div>
+                            <button class="cta-button">Découvrir le Programme</button>
+                        </div>
+                    </div>
+
+                    <!-- Programme Card 3 -->
+                    <div class="programme-card fade-in" data-category="cardio">
+                        <div class="programme-image">
+                            <img src="../image/trainingmulti2.jpeg" alt="Programme Cardio">
+                            <div class="programme-duration">8 semaines</div>
+                        </div>
+                        <div class="programme-content">
+                            <h3>Programme Cardio Intensif</h3>
+                            <div class="programme-details">
+                                <span><i class="fas fa-clock"></i> 3-5 séances/semaine</span>
+                                <span><i class="fas fa-dumbbell"></i> Tous niveaux</span>
+                            </div>
+                            <p>Améliorez votre endurance et votre santé cardiovasculaire.</p>
+                            <div class="programme-features">
+                                <ul>
+                                    <li>HIIT personnalisé</li>
+                                    <li>Suivi fréquence cardiaque</li>
+                                    <li>Progression adaptative</li>
+                                </ul>
+                            </div>
+                            <button class="cta-button">Découvrir le Programme</button>
+                        </div>
+                    </div>
+
+                    <!-- Programme Card 4 -->
+                    <div class="programme-card fade-in" data-category="bien-etre">
+                        <div class="programme-image">
+                            <img src="../image/herofon2.jpeg" alt="Programme Bien-être">
+                            <div class="programme-duration">10 semaines</div>
+                        </div>
+                        <div class="programme-content">
+                            <h3>Programme Bien-être</h3>
+                            <div class="programme-details">
+                                <span><i class="fas fa-clock"></i> 2-3 séances/semaine</span>
+                                <span><i class="fas fa-dumbbell"></i> Débutant</span>
+                            </div>
+                            <p>Retrouvez forme et vitalité avec ce programme équilibré.</p>
+                            <div class="programme-features">
+                                <ul>
+                                    <li>Exercices de mobilité</li>
+                                    <li>Techniques de respiration</li>
+                                    <li>Gestion du stress</li>
+                                </ul>
+                            </div>
+                            <button class="cta-button">Découvrir le Programme</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Résultats -->
+        <section class="results-section">
+            <div class="container">
+                <h2>Résultats Prouvés</h2>
+                <div class="results-grid">
+                    <div class="result-card fade-in">
+                        <div class="before-after">
+                            <img src="../image/coach1.jpeg" alt="Avant">
+                            <img src="../image/coach2.jpeg" alt="Après">
+                        </div>
+                        <div class="result-content">
+                            <h3>Marie L.</h3>
+                            <p>-15kg en 12 semaines</p>
+                            <span class="programme-type">Programme Perte de Poids</span>
+                        </div>
+                    </div>
+                    <!-- Ajoutez d'autres cartes de résultats similaires -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2>Questions Fréquentes</h2>
+                <div class="faq-grid">
+                    <div class="faq-item fade-in">
+                        <h3>Comment choisir mon programme ?</h3>
+                        <div class="faq-answer">
+                            <p>Nous vous guidons dans le choix du programme le plus adapté à vos objectifs et votre niveau actuel lors d'un entretien personnalisé.</p>
+                        </div>
+                    </div>
+                    <!-- Ajoutez d'autres questions/réponses -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Serenity Fitness</h3>
+                <p>Votre partenaire fitness à domicile</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <p class="copyright">© 2024 Serenity Fitness. Tous droits réservés.</p>
+    </footer>
+
+    <script src="../js/programmes.js"></script>
+    <script src="../js/nav.js"></script>
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth-state.js"></script>
+</body>
+</html>

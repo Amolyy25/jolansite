@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coach Musculation à Domicile | Votre Transformation Commence Ici</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Serenity Fitness</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html" class="active">Accueil</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./apropos.html">À Propos</a></li>
+                <li><a href="./programmes.html">Programmes</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="./connexion.html" class="btn-connexion">Connexion</a>
+                <a href="./inscription.html" class="btn-inscription">Inscription</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Transformez Votre Corps à Domicile</h1>
+                <p>Coaching personnalisé adapté à vos objectifs</p>
+                <button class="cta-button" onclick="window.location.href='./connexion.html'">Commencer Maintenant</button>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Mes Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <img src="../image/trainingper1.jpeg" alt="Entraînement personnel">
+                    <div class="service-card-content">
+                        <h3>Coaching Personnalisé</h3>
+                        <p>Programme sur mesure adapté à vos objectifs et votre niveau. Bénéficiez d'un suivi personnalisé pour atteindre vos objectifs plus rapidement.</p>
+                        <a href="#" class="btn-savoir-plus">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="../image/trainingmulti1.jpeg" alt="Conseils nutrition">
+                    <div class="service-card-content">
+                        <h3>Coaching Collectif</h3>
+                        <p>Séances d'entraînement en petit groupe pour une ambiance motivante et dynamique. Profitez des avantages du coaching personnalisé à un tarif avantageux.</p>
+                        <a href="#" class="btn-savoir-plus">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="../image/trainingmulti2.jpeg" alt="Coaching en ligne">
+                    <div class="service-card-content">
+                        <h3>Coaching en Ligne</h3>
+                        <p>Suivi à distance et support continu. Restez motivé et progressez avec un accompagnement professionnel où que vous soyez.</p>
+                        <a href="#" class="btn-savoir-plus">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="apropos">
+            <div class="about-content">
+                <img src="../image/coach1.jpeg" alt="Votre coach">
+                <div class="about-text">
+                    <h2>À Propos de Moi</h2>
+                    <p>Coach certifié avec 15 années d'expérience dans le fitness et la musculation. Spécialisé dans l'entraînement à domicile et la transformation physique.</p>
+                    <ul class="certifications">
+                        <li>Diplôme BPJEPS AGFF</li>
+                        <li>Certification en Nutrition Sportive</li>
+                        <li>Spécialiste en Musculation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contactez-moi</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Votre email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Votre message" required></textarea>
+                </div>
+                <button type="submit">Envoyer le message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Serenity Fitness</h3>
+                <p>Votre partenaire fitness à domicile</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <p class="copyright">© 2024 Serenity Fitness. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const fadeElems = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    fadeElems.forEach(elem => observer.observe(elem));
+});
+    </script>
+    <script src="../js/nav.js"></script>
+    <script type="module" src="../js/firebase-config.js"></script>
+    <script type="module" src="../js/auth-state.js"></script>
+</body>
+</html>
